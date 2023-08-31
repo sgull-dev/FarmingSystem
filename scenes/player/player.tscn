@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxtlysde7enn2"]
+
+[ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
+[ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
+height = 1.8
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dyagr"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_5gh6i")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.898638, 0)
+shape = SubResource("CapsuleShape3D_v3lxi")
+
+[node name="Model" type="CSGSphere3D" parent="."]
+transform = Transform3D(1.39188, 0, 0, 0, 1.39188, 0, 0, 0, 1.39188, 0, 1.39504, 0)
+radius = 0.315946
+script = ExtResource("2_ie0nu")
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.27814)
+size = Vector3(0.2, 0.25, 0.5)
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495171, 0)
+size = Vector3(0.546323, 1, 0.4825)
+
+[node name="GroundCast" type="ShapeCast3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_dyagr")
+target_position = Vector3(0, -0.075, 0)
