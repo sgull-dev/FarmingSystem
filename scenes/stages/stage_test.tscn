@@ -15,7 +15,7 @@ size = Vector3(3, 3, 3)
 [node name="Stage Test" type="Node3D"]
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.70503, 0.577668, -0.411378, 0, 0.580078, 0.814561, 0.709177, -0.57429, 0.408972, 0, 5.95168, 0)
+transform = Transform3D(0.99991, 0.0109182, -0.00777523, -3.7079e-10, 0.580078, 0.814561, 0.0134038, -0.814488, 0.580026, 0, 5.95168, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]

@@ -1,10 +1,55 @@
-[gd_scene load_steps=5 format=3 uid="uid://cxtlysde7enn2"]
+[gd_scene load_steps=11 format=3 uid="uid://cxtlysde7enn2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
+[ext_resource type="Script" path="res://scripts/player/player_hoe.gd" id="3_68jst"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
 height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wulbr"]
+albedo_color = Color(0.388235, 0.247059, 0.0901961, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ddsor"]
+albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
+metallic = 1.0
+roughness = 0.88
+
+[sub_resource type="Animation" id="Animation_wuj11"]
+resource_name = "SwingHoe"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoeHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.445495, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-0.445495, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_q122e"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoeHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.445495, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_pxwym"]
+_data = {
+"RESET": SubResource("Animation_q122e"),
+"SwingHoe": SubResource("Animation_wuj11")
+}
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dyagr"]
 
@@ -27,6 +72,32 @@ size = Vector3(0.2, 0.25, 0.5)
 [node name="CSGBox3D2" type="CSGBox3D" parent="Model"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495171, 0)
 size = Vector3(0.546323, 1, 0.4825)
+
+[node name="Hoe" type="Node3D" parent="Model"]
+transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
+script = ExtResource("3_68jst")
+
+[node name="HoeHolder" type="Node3D" parent="Model/Hoe"]
+transform = Transform3D(1, 0, 0, 0, 0.902397, 0.430905, 0, -0.430905, 0.902397, 0.514292, 0.55728, -0.146208)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model/Hoe/HoeHolder"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.366811, 0)
+size = Vector3(0.1, 1.2, 0.1)
+material = SubResource("StandardMaterial3D_wulbr")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model/Hoe/HoeHolder"]
+transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0.878286, -0.135411)
+size = Vector3(0.12, 0.35, 0.08)
+material = SubResource("StandardMaterial3D_ddsor")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Hoe"]
+libraries = {
+"": SubResource("AnimationLibrary_pxwym")
+}
+
+[node name="RayCast3D" type="RayCast3D" parent="Model/Hoe"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.663153)
+target_position = Vector3(0, -1.5, 0)
 
 [node name="GroundCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

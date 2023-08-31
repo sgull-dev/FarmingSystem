@@ -15,9 +15,9 @@ func gen_ground(extents:Vector2i):
 	
 	for x in extents.x:
 		for y in extents.y:
-			var spawn = start_pos + Vector3(x,0, y)
+			var spawn_pos = start_pos + Vector3(x,0, y)
 			var block = _block.instantiate()
 			add_child.call_deferred(block)
-			block.position = spawn
+			block.position = spawn_pos
 			#start_pos.z += 1
 		#start_pos.x += 1
