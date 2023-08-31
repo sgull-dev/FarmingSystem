@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=3 uid="uid://d2qp1s12rjlyy"]
+[gd_scene load_steps=5 format=3 uid="uid://d2qp1s12rjlyy"]
 
 [ext_resource type="Script" path="res://scripts/terrain/block_ground.gd" id="1_b8ssu"]
+[ext_resource type="Texture2D" uid="uid://d4htvjlkwpi5q" path="res://assets/ground/ground_albedo.png" id="2_i1me6"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gx7py"]
+albedo_texture = ExtResource("2_i1me6")
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_qru4n"]
 
@@ -10,9 +12,11 @@
 script = ExtResource("1_b8ssu")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 material = SubResource("StandardMaterial3D_gx7py")
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 shape = SubResource("BoxShape3D_qru4n")
