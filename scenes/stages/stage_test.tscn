@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://3141g61gq58u"]
+[gd_scene load_steps=9 format=3 uid="uid://3141g61gq58u"]
 
 [ext_resource type="PackedScene" uid="uid://cxtlysde7enn2" path="res://scenes/player/player.tscn" id="1_ky3jh"]
 [ext_resource type="PackedScene" uid="uid://cvsgmuvvay1lq" path="res://scenes/camera/topdown_camera.tscn" id="2_d0u2n"]
 [ext_resource type="Script" path="res://scripts/terrain/ground_generator.gd" id="3_nj6a1"]
+[ext_resource type="Script" path="res://scripts/player/player_inventory.gd" id="4_u1wny"]
+[ext_resource type="PackedScene" uid="uid://41c846v3svp7" path="res://scenes/ui/hud.tscn" id="5_xbas0"]
 
 [sub_resource type="Environment" id="Environment_jq37o"]
 
@@ -109,3 +111,8 @@ shape = SubResource("BoxShape3D_880lw")
 transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("3_nj6a1")
 ground_extents = Vector2i(100, 100)
+
+[node name="PlayerInventory" type="Node" parent="."]
+script = ExtResource("4_u1wny")
+
+[node name="HUD" parent="." instance=ExtResource("5_xbas0")]

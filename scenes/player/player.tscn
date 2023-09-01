@@ -15,21 +15,6 @@ albedo_color = Color(0.682353, 0.682353, 0.682353, 1)
 metallic = 1.0
 roughness = 0.88
 
-[sub_resource type="Animation" id="Animation_wuj11"]
-resource_name = "SwingHoe"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("HoeHolder:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.3, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-0.445495, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-0.445495, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_q122e"]
 length = 0.001
 tracks/0/type = "value"
@@ -43,6 +28,21 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-0.445495, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wuj11"]
+resource_name = "SwingHoe"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HoeHolder:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.445495, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-2.02458, 0, 0), Vector3(-0.445495, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_pxwym"]
@@ -96,7 +96,7 @@ libraries = {
 }
 
 [node name="RayCast3D" type="RayCast3D" parent="Model/Hoe"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.663153)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.857785)
 target_position = Vector3(0, -1.5, 0)
 
 [node name="GroundCast" type="ShapeCast3D" parent="."]
