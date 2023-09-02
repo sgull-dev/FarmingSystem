@@ -36,8 +36,9 @@ func swing_hoe():
 	if !collider == null:
 		#print("Raycast found something.")
 		#print(collider)
-		if "is_block" in collider.get_node(".."):
+		if "is_block" in collider:
 			#print("Body was block.")
-			collider.get_node("..").till_block()
+			if collider.plant_type != PlantDatabase.PLANT_TYPE.TREE:
+				collider.till_block()
 	await  anim.animation_finished
 	can_swing_hoe = true

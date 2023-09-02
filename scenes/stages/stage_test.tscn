@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://3141g61gq58u"]
+[gd_scene load_steps=12 format=3 uid="uid://3141g61gq58u"]
 
 [ext_resource type="Script" path="res://scripts/game/stage.gd" id="1_afj37"]
 [ext_resource type="PackedScene" uid="uid://cxtlysde7enn2" path="res://scenes/player/player.tscn" id="1_ky3jh"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/player/player_inventory.gd" id="4_u1wny"]
 [ext_resource type="PackedScene" uid="uid://41c846v3svp7" path="res://scenes/ui/hud.tscn" id="5_xbas0"]
 [ext_resource type="PackedScene" uid="uid://dexbqrqc57pf6" path="res://scenes/interactables/seed_box.tscn" id="6_ki5hg"]
+[ext_resource type="PackedScene" uid="uid://c4pdn6ocmqljt" path="res://scenes/plants/plant_tree.tscn" id="8_wgxyn"]
 
 [sub_resource type="Environment" id="Environment_jq37o"]
 
@@ -20,7 +21,7 @@ size = Vector3(3, 3, 3)
 script = ExtResource("1_afj37")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.99991, 0.0109182, -0.00777523, -3.7079e-10, 0.580078, 0.814561, 0.0134038, -0.814488, 0.580026, 0, 5.95168, 0)
+transform = Transform3D(0.855708, 0, 0.51746, -0.51746, -4.37114e-08, 0.855708, 2.26189e-08, -1, -3.74042e-08, 0, 5.95168, 0)
 shadow_enabled = true
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -111,9 +112,9 @@ metadata/_edit_group_ = true
 shape = SubResource("BoxShape3D_880lw")
 
 [node name="GroundGenerator" type="Node3D" parent="."]
-transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
 script = ExtResource("3_nj6a1")
 ground_extents = Vector2i(100, 100)
+tree_spawn_change = 2.0
 
 [node name="PlayerInventory" type="Node" parent="."]
 script = ExtResource("4_u1wny")
@@ -134,3 +135,9 @@ seed_amount_to_give = 10
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73022, -0.132723, 24.0815)
 seed_type_to_give = "seeds_carrot"
 seed_amount_to_give = 10
+
+[node name="PlantTree" parent="." instance=ExtResource("8_wgxyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.63071, 1.5, 8.88447)
+
+[node name="PlantTree2" parent="." instance=ExtResource("8_wgxyn")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.300078, 0, 9.78676)

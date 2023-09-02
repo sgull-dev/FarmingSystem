@@ -93,6 +93,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel2"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -128,6 +129,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel3"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -163,6 +165,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel4"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -198,6 +201,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel5"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -233,6 +237,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel6"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -268,6 +273,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel7"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531
@@ -303,6 +309,7 @@ texture = ExtResource("3_a1fli")
 expand_mode = 1
 
 [node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel8"]
+layout_mode = 0
 offset_left = 49.7531
 offset_top = 53.0
 offset_right = 96.7531

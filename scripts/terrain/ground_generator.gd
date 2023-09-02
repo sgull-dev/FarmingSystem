@@ -1,6 +1,7 @@
 extends Node3D
 
 @export var ground_extents : Vector2i
+@export var tree_spawn_change : float
 
 var _block = preload("res://scenes/terrain/block_ground.tscn")
 
@@ -15,9 +16,10 @@ func gen_ground(extents:Vector2i):
 	
 	for x in extents.x:
 		for y in extents.y:
-			var spawn_pos = start_pos + Vector3(x,0, y)
+			var spawn_pos = start_pos + Vector3(2*x,0, 2*y)
 			var block = _block.instantiate()
 			add_child.call_deferred(block)
 			block.position = spawn_pos
-			#start_pos.z += 1
-		#start_pos.x += 1
+			#spawn tree on rand_change
+			if tree_spawn_change > randf_range(0.0, 100.0):
+				block.add_plant(PlantDatabase.PLANT_TYPE.TREE)
