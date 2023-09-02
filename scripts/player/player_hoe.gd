@@ -26,7 +26,7 @@ func _input(event):
 
 
 func swing_hoe():
-	print("Swinging hoe.")
+	#print("Swinging hoe.")
 	can_swing_hoe = false
 	#anim
 	anim.play("SwingHoe")
@@ -34,10 +34,10 @@ func swing_hoe():
 	hoe_cast.force_raycast_update()
 	var collider = hoe_cast.get_collider()
 	if !collider == null:
-		print("Raycast found something.")
-		print(collider)
+		#print("Raycast found something.")
+		#print(collider)
 		if "is_block" in collider.get_node(".."):
-			print("Body was block.")
+			#print("Body was block.")
 			collider.get_node("..").till_block()
 	await  anim.animation_finished
 	can_swing_hoe = true

@@ -56,6 +56,17 @@ grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
 
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel1"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+
 [node name="ItemPanel2" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -80,6 +91,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel2"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
 
 [node name="ItemPanel3" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -106,6 +127,16 @@ grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
 
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel3"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+
 [node name="ItemPanel4" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -130,6 +161,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel4"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
 
 [node name="ItemPanel5" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -156,6 +197,16 @@ grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
 
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel5"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+
 [node name="ItemPanel6" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -180,6 +231,16 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel6"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
 
 [node name="ItemPanel7" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -206,6 +267,16 @@ grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
 
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel7"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+
 [node name="ItemPanel8" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
@@ -230,3 +301,13 @@ grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("3_a1fli")
 expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="InventoryHUD/HBoxContainer/ItemPanel8"]
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"

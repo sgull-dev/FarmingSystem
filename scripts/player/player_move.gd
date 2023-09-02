@@ -5,8 +5,11 @@ const fall_gravity = 9.8
 #export variables for movement changes
 @export var running_movement_speed := 400
 
+var is_player = true
+
 @onready var ground = $GroundCast
 @onready var model = $Model
+
 
 func _physics_process(delta):
 	#input into a vector

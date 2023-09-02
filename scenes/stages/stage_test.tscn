@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://3141g61gq58u"]
+[gd_scene load_steps=11 format=3 uid="uid://3141g61gq58u"]
 
+[ext_resource type="Script" path="res://scripts/game/stage.gd" id="1_afj37"]
 [ext_resource type="PackedScene" uid="uid://cxtlysde7enn2" path="res://scenes/player/player.tscn" id="1_ky3jh"]
 [ext_resource type="PackedScene" uid="uid://cvsgmuvvay1lq" path="res://scenes/camera/topdown_camera.tscn" id="2_d0u2n"]
 [ext_resource type="Script" path="res://scripts/terrain/ground_generator.gd" id="3_nj6a1"]
 [ext_resource type="Script" path="res://scripts/player/player_inventory.gd" id="4_u1wny"]
 [ext_resource type="PackedScene" uid="uid://41c846v3svp7" path="res://scenes/ui/hud.tscn" id="5_xbas0"]
+[ext_resource type="PackedScene" uid="uid://dexbqrqc57pf6" path="res://scenes/interactables/seed_box.tscn" id="6_ki5hg"]
 
 [sub_resource type="Environment" id="Environment_jq37o"]
 
@@ -15,6 +17,7 @@ albedo_color = Color(0.403922, 0.2, 0.137255, 1)
 size = Vector3(3, 3, 3)
 
 [node name="Stage Test" type="Node3D"]
+script = ExtResource("1_afj37")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.99991, 0.0109182, -0.00777523, -3.7079e-10, 0.580078, 0.814561, 0.0134038, -0.814488, 0.580026, 0, 5.95168, 0)
@@ -116,3 +119,18 @@ ground_extents = Vector2i(100, 100)
 script = ExtResource("4_u1wny")
 
 [node name="HUD" parent="." instance=ExtResource("5_xbas0")]
+
+[node name="SeedBox" parent="." instance=ExtResource("6_ki5hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73022, -0.132723, 12.1564)
+seed_type_to_give = "seeds_wheat"
+seed_amount_to_give = 10
+
+[node name="SeedBox2" parent="." instance=ExtResource("6_ki5hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73022, -0.132723, 17.8335)
+seed_type_to_give = "seeds_corn"
+seed_amount_to_give = 10
+
+[node name="SeedBox3" parent="." instance=ExtResource("6_ki5hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.73022, -0.132723, 24.0815)
+seed_type_to_give = "seeds_carrot"
+seed_amount_to_give = 10

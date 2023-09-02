@@ -21,4 +21,10 @@ func update_inventory():
 			inv_slot.get_node("Selected").visible = true
 		else:
 			inv_slot.get_node("Selected").visible = false
+		#set amount text
+		if player_inventory.inventory[i].stackable == false:
+			inv_slot.get_node("AmountText").visible = false
+		else:
+			inv_slot.get_node("AmountText").visible = true
+			inv_slot.get_node("AmountText").text = "x" + str(player_inventory.inventory[i].amount)
 		i += 1
