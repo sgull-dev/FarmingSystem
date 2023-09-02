@@ -1,0 +1,90 @@
+[gd_scene load_steps=3 format=3 uid="uid://qmurcah5kc62"]
+
+[ext_resource type="PackedScene" uid="uid://8250why87gwp" path="res://assets/plants/corn_ready.glb" id="1_ikd2w"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8ke0"]
+albedo_color = Color(0.376471, 0.733333, 0.282353, 1)
+
+[node name="PlantCorn" type="Node3D"]
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="Ready" type="Node3D" parent="Models"]
+visible = false
+
+[node name="corn_ready" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, 0.681318, 0, -0.133679)
+
+[node name="corn_ready2" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, 0.681318, 0, 0.506752)
+
+[node name="corn_ready3" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, 0.681318, 0, 1.15843)
+
+[node name="corn_ready4" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.000716932, 0, -0.133679)
+
+[node name="corn_ready5" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.000716932, 0, 0.506752)
+
+[node name="corn_ready6" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.000716932, 0, 1.15843)
+
+[node name="corn_ready7" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.638953, 0, -0.133679)
+
+[node name="corn_ready8" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.638953, 0, 0.506752)
+
+[node name="corn_ready9" parent="Models/Ready" instance=ExtResource("1_ikd2w")]
+transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.638953, 0, 1.15843)
+
+[node name="Middle" type="Node3D" parent="Models"]
+visible = false
+
+[node name="Sapling" type="Node3D" parent="Models"]
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.102618)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, 0.102618)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, 0.102618)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.535354)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D5" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, -0.535354)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D6" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, -0.535354)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D7" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.728552)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D8" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, 0.728552)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")
+
+[node name="CSGBox3D9" type="CSGBox3D" parent="Models/Sapling"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, 0.728552)
+size = Vector3(0.1, 0.3, 0.1)
+material = SubResource("StandardMaterial3D_f8ke0")

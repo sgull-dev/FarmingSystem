@@ -1,5 +1,7 @@
 extends Node
 
+const null_item = {"item_name": "null", "stackable": false, "amount": 0}
+
 var inventory = [
 	{"item_name": "hoe", "stackable": false, "amount": 1},
 	{"item_name": "null", "stackable": false, "amount": 0},
@@ -80,4 +82,9 @@ func get_item(item:Dictionary):
 				print("Found empty slot for item, inserting.")
 				inventory[slot] = item
 				return
-		
+
+
+func remove_item(slot, amount_to_remove):
+	inventory[slot].amount -= amount_to_remove
+	if inventory[slot].amount <= 0:
+		inventory[slot] = null_item

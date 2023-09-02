@@ -19,5 +19,5 @@ func till_block():
 func add_plant(type):
 	plant_type = type
 	var plant = PlantDatabase.get_plant_node(type)
-	add_child.call_deferred(plant)
+	add_child(plant)
 	plant.position = Vector3.ZERO

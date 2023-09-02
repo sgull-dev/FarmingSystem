@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://cxtlysde7enn2"]
+[gd_scene load_steps=12 format=3 uid="uid://cxtlysde7enn2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
 [ext_resource type="Script" path="res://scripts/player/player_hoe.gd" id="3_68jst"]
+[ext_resource type="Script" path="res://scripts/player/player_seedplanter.gd" id="4_cxai7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
 height = 1.8
@@ -98,6 +99,13 @@ libraries = {
 
 [node name="RayCast3D" type="RayCast3D" parent="Model/Hoe"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.857785)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="SeedPlanter" type="Node3D" parent="Model"]
+script = ExtResource("4_cxai7")
+
+[node name="RayCast3D" type="RayCast3D" parent="Model/SeedPlanter"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059397, -0.115623, -0.627779)
 target_position = Vector3(0, -1.5, 0)
 
 [node name="GroundCast" type="ShapeCast3D" parent="."]

@@ -5,7 +5,7 @@ enum PLANT_TYPE {NONE, TREE, CORN, WHEAT, CARROT}
 var plants = [
 	null,
 	preload("res://scenes/plants/plant_tree.tscn"),
-	null,
+	preload("res://scenes/plants/plant_corn.tscn"),
 	null,
 	null,
 ]
