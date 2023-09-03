@@ -1,8 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://41c846v3svp7"]
+[gd_scene load_steps=6 format=3 uid="uid://41c846v3svp7"]
 
 [ext_resource type="Script" path="res://scripts/inventory/ui_inventory.gd" id="1_i6xwg"]
 [ext_resource type="Texture2D" uid="uid://bs6w1mpxie5hd" path="res://assets/ui/item_icons/hoe.png" id="2_j30nl"]
 [ext_resource type="Texture2D" uid="uid://cdh4yf3wcacnx" path="res://assets/ui/icon_item_select.png" id="3_a1fli"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8imey"]
+frequency = 0.0265
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_osc4c"]
+noise = SubResource("FastNoiseLite_8imey")
 
 [node name="HUD" type="CanvasLayer"]
 
@@ -66,6 +72,9 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
 
 [node name="ItemPanel2" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -102,6 +111,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel3" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -138,6 +148,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel4" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -174,6 +185,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel5" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -210,6 +222,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel6" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -246,6 +259,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel7" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -282,6 +296,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
 
 [node name="ItemPanel8" type="Panel" parent="InventoryHUD/HBoxContainer"]
 custom_minimum_size = Vector2(100, 0)
@@ -318,3 +333,10 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 2
 theme_override_font_sizes/normal_font_size = 21
 text = "x99"
+fit_content = true
+
+[node name="NoiseTexture" type="TextureRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("NoiseTexture2D_osc4c")

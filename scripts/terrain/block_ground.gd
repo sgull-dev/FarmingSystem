@@ -21,3 +21,9 @@ func add_plant(type):
 	var plant = PlantDatabase.get_plant_node(type)
 	add_child(plant)
 	plant.position = Vector3.ZERO
+
+
+func reset_block():
+	ground_mode = GROUND_MODE.DIRT
+	plant_type = PlantDatabase.PLANT_TYPE.NONE
+	graphic.material = load("res://materials/block_ground.tres")

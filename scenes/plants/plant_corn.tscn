@@ -1,11 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://qmurcah5kc62"]
+[gd_scene load_steps=5 format=3 uid="uid://qmurcah5kc62"]
 
 [ext_resource type="PackedScene" uid="uid://8250why87gwp" path="res://assets/plants/corn_ready.glb" id="1_ikd2w"]
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_f8ke0"]
-albedo_color = Color(0.376471, 0.733333, 0.282353, 1)
+[ext_resource type="Script" path="res://scripts/plants/plant_base.gd" id="1_qwfjv"]
+[ext_resource type="PackedScene" uid="uid://5cgfbcow2nfc" path="res://assets/plants/corn_sappling.glb" id="3_f5lyr"]
+[ext_resource type="PackedScene" uid="uid://k5ych355denu" path="res://assets/plants/corn_middle.glb" id="3_tjuwt"]
 
 [node name="PlantCorn" type="Node3D"]
+script = ExtResource("1_qwfjv")
+item_to_give = {
+"amount": 3,
+"item_name": "corn",
+"stackable": true
+}
 
 [node name="Models" type="Node3D" parent="."]
 
@@ -42,49 +48,58 @@ transform = Transform3D(0.785083, 0, 0, 0, 0.785083, 0, 0, 0, 0.785083, -0.63895
 [node name="Middle" type="Node3D" parent="Models"]
 visible = false
 
+[node name="corn_middle" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35702, 0.102618)
+
+[node name="corn_middle2" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0.35702, 0.102618)
+
+[node name="corn_middle3" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0.35702, 0.102618)
+
+[node name="corn_middle4" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35702, -0.535354)
+
+[node name="corn_middle5" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0.35702, -0.535354)
+
+[node name="corn_middle6" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0.35702, -0.535354)
+
+[node name="corn_middle7" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.35702, 0.728552)
+
+[node name="corn_middle8" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0.35702, 0.728552)
+
+[node name="corn_middle9" parent="Models/Middle" instance=ExtResource("3_tjuwt")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0.35702, 0.728552)
+
 [node name="Sapling" type="Node3D" parent="Models"]
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.102618)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling2" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, 0.102618)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D3" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling3" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, 0.102618)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D4" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling4" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.535354)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D5" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling5" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, -0.535354)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D6" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling6" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, -0.535354)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D7" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling7" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.728552)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D8" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling8" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.616906, 0, 0.728552)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")
 
-[node name="CSGBox3D9" type="CSGBox3D" parent="Models/Sapling"]
+[node name="corn_sappling9" parent="Models/Sapling" instance=ExtResource("3_f5lyr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.695148, 0, 0.728552)
-size = Vector3(0.1, 0.3, 0.1)
-material = SubResource("StandardMaterial3D_f8ke0")

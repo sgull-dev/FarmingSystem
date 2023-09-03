@@ -1,9 +1,10 @@
-[gd_scene load_steps=12 format=3 uid="uid://cxtlysde7enn2"]
+[gd_scene load_steps=16 format=3 uid="uid://cxtlysde7enn2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
 [ext_resource type="Script" path="res://scripts/player/player_hoe.gd" id="3_68jst"]
 [ext_resource type="Script" path="res://scripts/player/player_seedplanter.gd" id="4_cxai7"]
+[ext_resource type="Script" path="res://scripts/player/player_sickle.gd" id="4_ui6h2"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
 height = 1.8
@@ -21,7 +22,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HoeHolder:rotation")
+tracks/0/path = NodePath("Holder:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -36,7 +37,7 @@ resource_name = "SwingHoe"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("HoeHolder:rotation")
+tracks/0/path = NodePath("Holder:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,6 +51,66 @@ tracks/0/keys = {
 _data = {
 "RESET": SubResource("Animation_q122e"),
 "SwingHoe": SubResource("Animation_wuj11")
+}
+
+[sub_resource type="Animation" id="Animation_303xq"]
+resource_name = "SwingSickle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Sickle/Holder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.514292, 0.55728, -0.146208), Vector3(0.635237, 0.533213, -0.232054), Vector3(0.508657, 0.54363, -0.194898), Vector3(0.514292, 0.55728, -0.146208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Sickle/Holder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.36637, 0, 0), Vector3(-1.29746, -3.14159, 2.20603), Vector3(-1.29746, -3.14159, -2.84569), Vector3(-1.36637, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_uhiw5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Sickle/Holder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0.514292, 0.55728, -0.146208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Sickle/Holder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.36637, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_tyycs"]
+_data = {
+"RESET": SubResource("Animation_uhiw5"),
+"SwingSickle": SubResource("Animation_303xq")
 }
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dyagr"]
@@ -79,20 +140,21 @@ size = Vector3(0.546323, 1, 0.4825)
 transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
 script = ExtResource("3_68jst")
 
-[node name="HoeHolder" type="Node3D" parent="Model/Hoe"]
+[node name="Holder" type="Node3D" parent="Model/Hoe"]
 transform = Transform3D(1, 0, 0, 0, 0.902397, 0.430905, 0, -0.430905, 0.902397, 0.514292, 0.55728, -0.146208)
 
-[node name="CSGBox3D" type="CSGBox3D" parent="Model/Hoe/HoeHolder"]
+[node name="CSGBox3D" type="CSGBox3D" parent="Model/Hoe/Holder"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.366811, 0)
 size = Vector3(0.1, 1.2, 0.1)
 material = SubResource("StandardMaterial3D_wulbr")
 
-[node name="CSGBox3D2" type="CSGBox3D" parent="Model/Hoe/HoeHolder"]
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model/Hoe/Holder"]
 transform = Transform3D(1, 0, 0, 0, -0.258819, 0.965926, 0, -0.965926, -0.258819, 0, 0.878286, -0.135411)
 size = Vector3(0.12, 0.35, 0.08)
 material = SubResource("StandardMaterial3D_ddsor")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Hoe"]
+speed_scale = 2.0
 libraries = {
 "": SubResource("AnimationLibrary_pxwym")
 }
@@ -100,6 +162,43 @@ libraries = {
 [node name="RayCast3D" type="RayCast3D" parent="Model/Hoe"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.857785)
 target_position = Vector3(0, -1.5, 0)
+
+[node name="Sickle" type="Node3D" parent="Model"]
+transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
+script = ExtResource("4_ui6h2")
+
+[node name="Holder" type="Node3D" parent="Model/Sickle"]
+transform = Transform3D(1, 0, 0, 0, 0.20301, 0.979176, 0, -0.979176, 0.20301, 0.514292, 0.55728, -0.146208)
+
+[node name="CSGBox3D" type="CSGBox3D" parent="Model/Sickle/Holder"]
+transform = Transform3D(0.952672, 0.29767, -0.0617149, -0.297669, 0.954623, 0.00940795, 0.0617149, 0.00940795, 0.998049, 0.115633, 0.22, 0)
+size = Vector3(0.1, 0.6, 0.1)
+material = SubResource("StandardMaterial3D_wulbr")
+
+[node name="CSGBox3D2" type="CSGBox3D" parent="Model/Sickle/Holder"]
+transform = Transform3D(-0.0205939, -0.710569, 0.703326, -0.180534, 0.694555, 0.69642, -0.983353, -0.112632, -0.142585, 0.121018, 0.566705, -0.0165809)
+size = Vector3(0.0347504, 0.35, 0.08)
+material = SubResource("StandardMaterial3D_ddsor")
+
+[node name="CSGBox3D3" type="CSGBox3D" parent="Model/Sickle/Holder"]
+transform = Transform3D(-0.0205939, -0.945349, 0.325409, -0.180534, 0.323644, 0.928796, -0.983353, -0.0396197, -0.177332, -0.0633028, 0.68504, -0.0344457)
+size = Vector3(0.0347504, 0.187904, 0.08)
+material = SubResource("StandardMaterial3D_ddsor")
+
+[node name="CSGBox3D4" type="CSGBox3D" parent="Model/Sickle/Holder"]
+transform = Transform3D(-0.0205939, -0.940418, -0.339396, -0.180534, -0.33039, 0.926417, -0.983353, 0.0803511, -0.162973, -0.221813, 0.690005, -0.0320376)
+size = Vector3(0.0347504, 0.187904, 0.08)
+material = SubResource("StandardMaterial3D_ddsor")
+
+[node name="RayCast3D" type="RayCast3D" parent="Model/Sickle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.500669, 0.838254, -0.857785)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model/Sickle"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_tyycs")
+}
 
 [node name="SeedPlanter" type="Node3D" parent="Model"]
 script = ExtResource("4_cxai7")

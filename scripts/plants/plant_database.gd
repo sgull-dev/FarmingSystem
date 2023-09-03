@@ -6,8 +6,8 @@ var plants = [
 	null,
 	preload("res://scenes/plants/plant_tree.tscn"),
 	preload("res://scenes/plants/plant_corn.tscn"),
-	null,
-	null,
+	preload("res://scenes/plants/plant_wheat.tscn"),
+	preload("res://scenes/plants/plant_carrot.tscn"),
 ]
 
 

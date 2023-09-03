@@ -4,7 +4,7 @@ var item_active : bool = false
 var can_swing_hoe : bool = true
 
 @onready var anim = $AnimationPlayer
-@onready var hoe_cast = $RayCast3D
+@onready var cast = $RayCast3D
 @onready var player_inventory = $"../../../PlayerInventory"
 
 
@@ -31,8 +31,8 @@ func swing_hoe():
 	#anim
 	anim.play("SwingHoe")
 	#cast
-	hoe_cast.force_raycast_update()
-	var collider = hoe_cast.get_collider()
+	cast.force_raycast_update()
+	var collider = cast.get_collider()
 	if !collider == null:
 		#print("Raycast found something.")
 		#print(collider)

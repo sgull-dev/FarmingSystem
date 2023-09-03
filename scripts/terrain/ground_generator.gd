@@ -5,8 +5,12 @@ extends Node3D
 
 var _block = preload("res://scenes/terrain/block_ground.tscn")
 
+var noise = FastNoiseLite.new()
+var noise_image
+
 
 func _ready():
+	gen_tree_noise()
 	gen_ground(ground_extents)
 
 
@@ -20,6 +24,21 @@ func gen_ground(extents:Vector2i):
 			var block = _block.instantiate()
 			add_child.call_deferred(block)
 			block.position = spawn_pos
-			#spawn tree on rand_change
-			if tree_spawn_change > randf_range(0.0, 100.0):
-				block.add_plant(PlantDatabase.PLANT_TYPE.TREE)
+			#spawn tree
+			try_spawning_tree(block, x, y)
+
+
+func gen_tree_noise():
+	noise.seed = randi()
+	noise.frequency = 0.16
+	#gen image
+	noise_image = noise.get_image(ground_extents.x, ground_extents.y)
+	#debugging display
+	var texture = ImageTexture.create_from_image(noise_image)
+	$"../HUD/NoiseTexture".texture = texture
+
+
+func try_spawning_tree(block, x, y):
+	#print("Trying to spawn tree on block: (" + str(x) +"," + str(y) + ")")
+	if noise_image.get_pixel(x,y).r < 0.24:
+		block.add_plant(PlantDatabase.PLANT_TYPE.TREE)

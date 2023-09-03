@@ -4,7 +4,7 @@ const null_item = {"item_name": "null", "stackable": false, "amount": 0}
 
 var inventory = [
 	{"item_name": "hoe", "stackable": false, "amount": 1},
-	{"item_name": "null", "stackable": false, "amount": 0},
+	{"item_name": "sickle", "stackable": false, "amount": 1},
 	{"item_name": "null", "stackable": false, "amount": 0},
 	{"item_name": "null", "stackable": false, "amount": 0},
 	{"item_name": "null", "stackable": false, "amount": 0},

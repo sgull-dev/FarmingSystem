@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://4ao27qpshsyh"]
+
+[ext_resource type="Script" path="res://scripts/plants/plant_base.gd" id="1_r5uip"]
+[ext_resource type="PackedScene" uid="uid://dq834y5odrxmc" path="res://assets/plants/carrot/carrot_ready.glb" id="2_5vi8d"]
+[ext_resource type="PackedScene" uid="uid://bvwunh6iyy506" path="res://assets/plants/carrot/carreot_middle.glb" id="3_42rh4"]
+[ext_resource type="PackedScene" uid="uid://b4ukuy4cwo4aq" path="res://assets/plants/carrot/carrot_sapling.glb" id="4_l1sqn"]
+
+[node name="PlantCarrot" type="Node3D"]
+script = ExtResource("1_r5uip")
+growth_chance = 0.07
+item_to_give = {
+"amount": 1,
+"item_name": "carrot",
+"stackable": true
+}
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="Ready" type="Node3D" parent="Models"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+visible = false
+
+[node name="carrot_ready" parent="Models/Ready" instance=ExtResource("2_5vi8d")]
+
+[node name="Middle" type="Node3D" parent="Models"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+visible = false
+
+[node name="carreot_middle" parent="Models/Middle" instance=ExtResource("3_42rh4")]
+transform = Transform3D(0.769231, 0, 0, 0, 0.769231, 0, 0, 0, 0.769231, 0, 0, 0)
+
+[node name="Sapling" type="Node3D" parent="Models"]
+transform = Transform3D(1.3, 0, 0, 0, 1.3, 0, 0, 0, 1.3, 0, 0, 0)
+
+[node name="carrot_sapling" parent="Models/Sapling" instance=ExtResource("4_l1sqn")]
