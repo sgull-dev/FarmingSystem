@@ -53,33 +53,6 @@ _data = {
 "SwingHoe": SubResource("Animation_wuj11")
 }
 
-[sub_resource type="Animation" id="Animation_303xq"]
-resource_name = "SwingSickle"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Model/Sickle/Holder:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(0.514292, 0.55728, -0.146208), Vector3(0.635237, 0.533213, -0.232054), Vector3(0.508657, 0.54363, -0.194898), Vector3(0.514292, 0.55728, -0.146208)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Model/Sickle/Holder:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.3, 0.4, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-1.36637, 0, 0), Vector3(-1.29746, -3.14159, 2.20603), Vector3(-1.29746, -3.14159, -2.84569), Vector3(-1.36637, 0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_uhiw5"]
 length = 0.001
 tracks/0/type = "value"
@@ -105,6 +78,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(-1.36637, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_303xq"]
+resource_name = "SwingSickle"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/Sickle/Holder:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0.514292, 0.55728, -0.146208), Vector3(0.635237, 0.533213, -0.232054), Vector3(0.508657, 0.54363, -0.194898), Vector3(0.514292, 0.55728, -0.146208)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/Sickle/Holder:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-1.36637, 0, 0), Vector3(-1.29746, -3.14159, 2.20603), Vector3(-1.29746, -3.14159, -2.84569), Vector3(-1.36637, 0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tyycs"]
@@ -165,10 +165,11 @@ target_position = Vector3(0, -1.5, 0)
 
 [node name="Sickle" type="Node3D" parent="Model"]
 transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
+visible = false
 script = ExtResource("4_ui6h2")
 
 [node name="Holder" type="Node3D" parent="Model/Sickle"]
-transform = Transform3D(1, 0, 0, 0, 0.20301, 0.979176, 0, -0.979176, 0.20301, 0.514292, 0.55728, -0.146208)
+transform = Transform3D(1, 0, 0, 0, 0.203005, 0.979177, 0, -0.979177, 0.203005, 0.514292, 0.55728, -0.146208)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="Model/Sickle/Holder"]
 transform = Transform3D(0.952672, 0.29767, -0.0617149, -0.297669, 0.954623, 0.00940795, 0.0617149, 0.00940795, 0.998049, 0.115633, 0.22, 0)
@@ -201,6 +202,7 @@ libraries = {
 }
 
 [node name="SeedPlanter" type="Node3D" parent="Model"]
+visible = false
 script = ExtResource("4_cxai7")
 
 [node name="RayCast3D" type="RayCast3D" parent="Model/SeedPlanter"]
