@@ -24,6 +24,7 @@ func give_seeds():
 
 
 func _on_interact_area_body_entered(body):
+	#enable interacting if body is player
 	if "is_player" in body:
 		can_interact = true
 

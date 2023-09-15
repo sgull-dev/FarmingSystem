@@ -9,6 +9,7 @@ var can_swing_hoe : bool = true
 
 
 func _process(_delta):
+	#if player is holding sickle in hand, activate
 	if player_inventory.inventory[player_inventory.active_item_slot].item_name == "sickle":
 		item_active = true
 		visible = true
@@ -26,18 +27,15 @@ func _input(event):
 
 
 func swing_hoe():
-	#print("Swinging hoe.")
-	#can_swing_hoe = false
 	#anim
 	anim.play("SwingSickle")
 	#cast
 	cast.force_raycast_update()
 	var collider = cast.get_collider()
+	#find collider
 	if !collider == null:
-		#print("Raycast found something.")
-		#print(collider)
 		if "is_block" in collider:
-			#print("Body was block.")
+			#If the collider is a block and the block's plant_type is correct, attempt to harvest plant
 			if collider.plant_type != PlantDatabase.PLANT_TYPE.TREE or collider.plant_type != PlantDatabase.PLANT_TYPE.NONE:
 				for child in collider.get_children():
 					if "is_crop" in child:

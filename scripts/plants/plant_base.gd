@@ -1,6 +1,8 @@
 extends Node3D
 
+#variable growth_chance to change growth behaviour
 @export var growth_chance: float = 0.1
+#Item gotten when plant is harvested.
 @export var item_to_give = {"item_name":"item_name", "stackable": true, "amount": 3}
 
 #track growth from 0-10
@@ -15,6 +17,7 @@ var is_crop = true
 
 
 func _ready():
+	#Connect growth to TimeManager.
 	GameData.get_current_stage().get_node("TimeManager").tick.connect(on_tick)
 
 
@@ -43,6 +46,7 @@ func harvest_plant():
 
 
 func update_plant_graphic():
+	#Update plant graphic to match growth amount
 	if growth <= 3:
 		graphic_sapling.visible = true
 	elif growth <= 9:
@@ -55,6 +59,7 @@ func update_plant_graphic():
 
 
 func on_tick():
+	#Attempt growing if not already fully grown.
 	if !harvestable:
 		if randf_range(0.0, 1.0) < growth_chance:
 			grow_plant()

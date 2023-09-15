@@ -37,6 +37,7 @@ func _input(event):
 
 func get_item(item:Dictionary):
 	print("Giving item to player.")
+	#If item isn't stackable, put it in empty slot.
 	if item.stackable == false:
 		print("Item is not stackable. Trying to put it to empty slot.")
 		#check if there is space on inventory
@@ -52,9 +53,10 @@ func get_item(item:Dictionary):
 			print("Found empty slot for item, inserting.")
 			inventory[slot] = item
 	
+	#If item is stackable, first try stacking it with an already existing stack.
 	elif item.stackable == true:
 		print("Item is stackable, trying to stack item.")
-		#check if there is already specific item on inventory
+		#check is there stack of item
 		var slot = null
 		var i = 0
 		while i < inventory.size():
@@ -62,13 +64,13 @@ func get_item(item:Dictionary):
 				slot = i
 				i += 1000
 			i += 1
-		#input item into the slot
+		#input item into the stack
 		if slot != null:
 			print("Found slot to stack item to. Stacking.")
 			item.amount = inventory[slot].amount + item.amount
 			inventory[slot] = item
 			return
-		#if we don't already have the stackable item, try placing it in empty slot
+		#if no stack ready, put to empty slot
 		else:
 			print("Didn't find slot to stack item to. Trying to find empty slot.")
 			i = 0

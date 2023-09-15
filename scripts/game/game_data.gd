@@ -11,6 +11,7 @@ var cam_rotation : float
 enum GAME_STATE {PLAY, DIALOGUE, CUTSCENE, MENU}
 var game_state = GAME_STATE.PLAY
 
+
 func change_game_state(state):
 	if state == GAME_STATE.PLAY:
 		get_tree().paused = false
@@ -20,6 +21,7 @@ func change_game_state(state):
 	game_state = state
 	
 	game_state_changed.emit(state)
+
 
 func get_current_stage() -> Variant:
 	var current_scene = null
