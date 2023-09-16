@@ -1,0 +1,114 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxqpb0jlqiakd"]
+
+[ext_resource type="Script" path="res://scripts/plants/plant_base.gd" id="1_1ylat"]
+[ext_resource type="PackedScene" uid="uid://uyecrbqx0dav" path="res://assets/plants/tomato/tomato_ready.glb" id="2_mjmfx"]
+[ext_resource type="PackedScene" uid="uid://dsuo3s8wqb8r1" path="res://assets/plants/tomato/tomato_spaling.glb" id="2_pjfyr"]
+[ext_resource type="PackedScene" uid="uid://v62tpvmsyx8t" path="res://assets/plants/tomato/stakes.glb" id="3_vjwtb"]
+[ext_resource type="PackedScene" uid="uid://bxup76aug1a7" path="res://assets/plants/tomato/tomato_middle.glb" id="4_qb376"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_lnp2n"]
+albedo_color = Color(0.498039, 0.564706, 0.247059, 1)
+
+[node name="PlantCarrot" type="Node3D"]
+script = ExtResource("1_1ylat")
+growth_chance = 0.06
+item_to_give = {
+"amount": 20,
+"item_name": "tomato",
+"stackable": true
+}
+
+[node name="Models" type="Node3D" parent="."]
+
+[node name="Ready" type="Node3D" parent="Models"]
+visible = false
+
+[node name="tomato_ready" parent="Models/Ready" instance=ExtResource("2_mjmfx")]
+
+[node name="Middle" type="Node3D" parent="Models"]
+visible = false
+
+[node name="tomato_spaling2" parent="Models/Middle" instance=ExtResource("2_pjfyr")]
+transform = Transform3D(1, 0, 0, 0, 1.78, 0, 0, 0, 1, 0, 0.116065, 0)
+visible = false
+
+[node name="CSGSphere3D" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.525852, 0.232191, -0.410468)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D2" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.924606, 0, -0.380925, 0, 1, 0, 0.380925, 0, 0.924606, 0.493003, 0.232191, -0.387824)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D3" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.998176, 0, -0.0603691, 0, 1, 0, 0.0603691, 0, 0.998176, 0.42, 0.164789, 0.509114)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D4" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.998176, 0, -0.0603691, 0, 1, 0, 0.0603691, 0, 0.998176, 0.36121, 0.164789, 0.509114)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D5" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.54513, 0.135776, 0.498758)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D6" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.600151, 0.135776, 0.519469)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D7" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.521243, 0.479549, 0.519469)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D8" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, 0.392092, 0.423314, 0.415595)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D9" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, 0.361714, 0.340319, 0.408001)
+visible = false
+radius = 0.0239564
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D10" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.461375, 0.178144, -0.316873)
+visible = false
+radius = 0.0170875
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D11" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.427101, 0.178144, -0.352086)
+visible = false
+radius = 0.0170875
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="CSGSphere3D12" type="CSGSphere3D" parent="Models/Middle"]
+transform = Transform3D(0.955454, 0, 0.295141, 0, 1, 0, -0.295141, 0, 0.955454, -0.507353, 0.371547, -0.362756)
+visible = false
+radius = 0.0170875
+material = SubResource("StandardMaterial3D_lnp2n")
+
+[node name="tomato_middle" parent="Models/Middle" instance=ExtResource("4_qb376")]
+transform = Transform3D(0.999954, -0.00954681, 0, 0.00954681, 0.999954, 0, 0, 0, 1, -0.000105262, 0, 0.0428193)
+
+[node name="Sapling" type="Node3D" parent="Models"]
+
+[node name="tomato_spaling" parent="Models/Sapling" instance=ExtResource("2_pjfyr")]
+
+[node name="stakes" parent="." instance=ExtResource("3_vjwtb")]

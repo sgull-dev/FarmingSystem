@@ -2,7 +2,8 @@ extends Node3D
 
 #terrain size
 @export var ground_extents : Vector2i
-@export var tree_spawn_change : float
+@export var tree_chance : float
+@export var grass_chance : float
 
 var _block = preload("res://scenes/terrain/block_ground.tscn")
 
@@ -56,10 +57,10 @@ func gen_noise_image(freq)->Image:
 func try_spawning_tree(block, x, y):
 	#print("Trying to spawn tree on block: (" + str(x) +"," + str(y) + ")")
 	#if pixel at (x,y) is dark enough, spawn tree on (x,y) block
-	if tree_noise_image.get_pixel(x,y).r < 0.24:
+	if tree_noise_image.get_pixel(x,y).r < tree_chance:
 		block.add_plant(PlantDatabase.PLANT_TYPE.TREE)
 
 
 func try_spawning_grass(block, x, y):
-	if grass_noise_image.get_pixel(x,y).r < 0.4:
+	if grass_noise_image.get_pixel(x,y).r < grass_chance:
 		block.make_grass()

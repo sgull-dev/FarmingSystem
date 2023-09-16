@@ -73,6 +73,8 @@ func reset_block():
 	plant_type = PlantDatabase.PLANT_TYPE.NONE
 	graphic.material_override = load("res://materials/block_ground.tres")
 	graphic.material_overlay = null
+	update_neighboring_blocks_overlay()
+	update_overlay_graphic()
 
 
 func update_overlay_graphic():

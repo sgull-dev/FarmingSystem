@@ -1,7 +1,7 @@
 extends Node
 
 #All the plant types in game. Use this to refer to plants anywhere in code.
-enum PLANT_TYPE {NONE, TREE, CORN, WHEAT, CARROT}
+enum PLANT_TYPE {NONE, TREE, CORN, WHEAT, CARROT, TOMATO}
 
 var plants = [
 	null,
@@ -9,6 +9,7 @@ var plants = [
 	preload("res://scenes/plants/plant_corn.tscn"),
 	preload("res://scenes/plants/plant_wheat.tscn"),
 	preload("res://scenes/plants/plant_carrot.tscn"),
+	preload("res://scenes/plants/plant_tomato.tscn")
 ]
 
 

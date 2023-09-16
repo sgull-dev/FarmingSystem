@@ -24,6 +24,8 @@ func plant_seed():
 			plant_type = PlantDatabase.PLANT_TYPE.WHEAT
 		"seeds_corn":
 			plant_type = PlantDatabase.PLANT_TYPE.CORN
+		"seeds_tomato":
+			plant_type = PlantDatabase.PLANT_TYPE.TOMATO
 		_: 
 			#if not holding seeds, return
 			return

@@ -115,7 +115,8 @@ shape = SubResource("BoxShape3D_880lw")
 [node name="GroundGenerator" type="Node3D" parent="."]
 script = ExtResource("3_nj6a1")
 ground_extents = Vector2i(100, 100)
-tree_spawn_change = 0.5
+tree_chance = 0.24
+grass_chance = 0.6
 
 [node name="PlayerInventory" type="Node" parent="."]
 script = ExtResource("4_u1wny")
@@ -135,6 +136,11 @@ seed_amount_to_give = 9
 [node name="SeedBox4" parent="." instance=ExtResource("6_ki5hg")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.707835, -0.132723, -7.76905)
 seed_type_to_give = "seeds_carrot"
+seed_amount_to_give = 9
+
+[node name="SeedBox5" parent="." instance=ExtResource("6_ki5hg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.23111, -0.132723, -7.4082)
+seed_type_to_give = "seeds_tomato"
 seed_amount_to_give = 9
 
 [node name="TimeManager" type="Node" parent="."]
