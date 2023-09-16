@@ -336,7 +336,6 @@ text = "x99"
 fit_content = true
 
 [node name="NoiseTexture" type="TextureRect" parent="."]
-visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("NoiseTexture2D_osc4c")
