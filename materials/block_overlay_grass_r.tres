@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://klbr1njo241f"]
+
+[ext_resource type="Texture2D" uid="uid://baxm85fi2unhk" path="res://assets/ground/grass_overlay_r.png" id="1_vo5rx"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.924
+alpha_antialiasing_mode = 0
+albedo_color = Color(0.792157, 0.792157, 0.792157, 1)
+albedo_texture = ExtResource("1_vo5rx")
+uv1_scale = Vector3(0.97, 0.97, 0.97)
+uv1_offset = Vector3(0.015, 0.005, 0)
+uv2_offset = Vector3(0, 4.795, 0)

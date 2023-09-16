@@ -1,0 +1,12 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://c541vbc4475oq"]
+
+[ext_resource type="Texture2D" uid="uid://dff24426sy7l0" path="res://assets/ground/grass_overlay_b.png" id="1_jxqib"]
+
+[resource]
+transparency = 2
+alpha_scissor_threshold = 0.906
+alpha_antialiasing_mode = 2
+alpha_antialiasing_edge = 0.0
+albedo_color = Color(0.792157, 0.792157, 0.792157, 1)
+albedo_texture = ExtResource("1_jxqib")
+uv1_scale = Vector3(0.99, 0.99, 0.99)

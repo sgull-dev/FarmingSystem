@@ -1,11 +1,11 @@
 [gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://dk2t330jwijgw"]
 
-[ext_resource type="Texture2D" uid="uid://cunk060olqcmg" path="res://assets/ground/ground_till_overlay_2.png" id="1_fixc2"]
+[ext_resource type="Texture2D" uid="uid://cunk060olqcmg" path="res://assets/ground/ground_till_overlay_2.png" id="1_dwo01"]
 
 [resource]
 transparency = 2
 alpha_scissor_threshold = 0.906
 alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.0
-albedo_texture = ExtResource("1_fixc2")
+albedo_texture = ExtResource("1_dwo01")
 uv1_scale = Vector3(0.99, 0.99, 0.99)
