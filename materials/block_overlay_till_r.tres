@@ -9,3 +9,4 @@ alpha_antialiasing_mode = 2
 alpha_antialiasing_edge = 0.0
 albedo_texture = ExtResource("1_dwo01")
 uv1_scale = Vector3(0.99, 0.99, 0.99)
+uv1_offset = Vector3(0, 0.005, 0)
