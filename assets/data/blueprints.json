@@ -1,6 +1,6 @@
 {
     "axe": {"twig": 2, "stone": 4},
-    "hoe": {"twig:": 4, "stone": 3},
-    "sickle": {"twig:": 2, "stone": 5},
+    "hoe": {"twig": 4, "stone": 3},
+    "sickle": {"twig": 2, "stone": 5},
     "watering_can": {"stone": 6}
 }

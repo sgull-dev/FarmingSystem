@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://u4qk6rm2nqgd"]
+
+[ext_resource type="Texture2D" uid="uid://dmb06pv00a874" path="res://assets/ui/item_icons/twig.png" id="1_bd2kn"]
+
+[node name="MatInfoCont" type="HBoxContainer"]
+
+[node name="MatIcon" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("1_bd2kn")
+expand_mode = 1
+
+[node name="MatAmountLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "3"
+fit_content = true
+autowrap_mode = 0

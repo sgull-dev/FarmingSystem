@@ -1,0 +1,45 @@
+[gd_scene load_steps=3 format=3 uid="uid://dh1jgu441307l"]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_craft_info.gd" id="1_1k2sn"]
+[ext_resource type="Texture2D" uid="uid://dshqew4ermhwn" path="res://assets/ui/item_icons/axe.png" id="2_64gws"]
+
+[node name="CraftCont" type="HBoxContainer"]
+custom_minimum_size = Vector2(0, 100)
+script = ExtResource("1_1k2sn")
+
+[node name="ItemNameLabel" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/normal_font_size = 41
+text = "Axe"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ItemIcon" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_64gws")
+expand_mode = 2
+
+[node name="ItemNameLabel2" type="RichTextLabel" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/default_color = Color(0.0862745, 0.0862745, 0.0862745, 1)
+theme_override_font_sizes/normal_font_size = 25
+text = "Materials:"
+fit_content = true
+autowrap_mode = 0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(1, 1, 1, 0)
+
+[node name="CraftButton" type="Button" parent="."]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_colors/font_color = Color(0.45098, 0.823529, 0.733333, 1)
+theme_override_font_sizes/font_size = 25
+text = "Craft"
+
+[connection signal="button_down" from="CraftButton" to="." method="_on_craft_button_button_down"]

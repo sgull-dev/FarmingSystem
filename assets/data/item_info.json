@@ -1,0 +1,17 @@
+{
+    "axe": {"item_name": "axe", "stackable": false, "amount": 1},
+    "hoe": {"item_name": "hoe", "stackable": false, "amount": 1},
+    "sickle": {"item_name": "sickle", "stackable": false, "amount": 1},
+    "watering_can": {"item_name": "watering_can", "stackable": false, "amount": 1},
+
+    "carrot": {"item_name": "carrot", "stackable": true, "amount": 1},
+    "corn": {"item_name": "corn", "stackable": true, "amount": 1},
+    "seeds_carrot": {"item_name": "seeds_carrot", "stackable": true, "amount": 1},
+    "seeds_corn": {"item_name": "seeds_corn", "stackable": true, "amount": 1},
+    "seeds_tomato": {"item_name": "seeds_tomato", "stackable": true, "amount": 1},
+    "seeds_wheat": {"item_name": "seeds_wheat", "stackable": true, "amount": 1},
+    "stone": {"item_name": "stone", "stackable": true, "amount": 1},
+    "tomato": {"item_name": "tomato", "stackable": true, "amount": 1},
+    "twig": {"item_name": "twig", "stackable": true, "amount": 1},
+    "wheat": {"item_name": "wheat", "stackable": true, "amount": 1}
+}

@@ -15,6 +15,8 @@ func _ready():
 	inventory.fill(null_item)
 	inventory[0] = {"item_name": "hoe", "stackable": false, "amount": 1}
 	inventory[1] = {"item_name": "sickle", "stackable": false, "amount": 1}
+	inventory[2] = {"item_name": "twig", "stackable": true, "amount": 5}
+	inventory[3] = {"item_name": "stone", "stackable": true, "amount": 11}
 
 
 func _input(event):
@@ -84,6 +86,39 @@ func remove_item(slot, amount_to_remove):
 	inventory[slot].amount -= amount_to_remove
 	if inventory[slot].amount <= 0:
 		inventory[slot] = null_item
+
+
+func remove_item_from_any_slot(item_name, amount):
+	var amount_to_remove = amount
+	#Iterate through slots in reverse order
+	var i = inventory.size() -1
+	while i >= 0 :
+		if inventory[i].item_name == item_name:
+			#clamp value to be removed from stack to stack's amount
+			var change = clamp(amount_to_remove, 0, inventory[i].amount)
+			inventory[i].amount -= change
+			amount_to_remove -= change
+			#Remove item entirely if amount is 0
+			if inventory[i].amount <= 0:
+				inventory[i] = null_item
+			if amount_to_remove <= 0:
+				#if all removed, stop
+				break
+		i -= 1
+
+
+func has_item(item_name, amount)->bool:
+	#Check if inventory has item_name of amount.
+	var check = false
+	var check_amount = 0
+	#iterate through all inventory slots
+	for slot in inventory:
+		if slot.item_name == item_name:
+			check_amount += slot.amount
+	#Check if enough
+	if check_amount >= amount:
+		check = true
+	return check
 
 
 func move_item(slot_from, slot_to):

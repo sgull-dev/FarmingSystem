@@ -12,9 +12,22 @@ var cam_rotation : float
 enum GAME_STATE {PLAY, DIALOGUE, CUTSCENE, MENU}
 var game_state = GAME_STATE.PLAY
 
+var blueprints
+var item_info
+
 
 func _ready():
 	player = get_current_stage().get_node("Player")
+	blueprints = load_json_data("res://assets/data/blueprints.json")
+	item_info = load_json_data("res://assets/data/item_info.json")
+
+
+func load_json_data(path):
+	var json_as_text = FileAccess.get_file_as_string(path)
+	
+	var json_as_dict = JSON.parse_string(json_as_text)
+	if json_as_dict:
+		return json_as_dict
 
 
 func change_game_state(state):
