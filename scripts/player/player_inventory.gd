@@ -51,24 +51,32 @@ func get_item(item:Dictionary):
 	
 	#If item is stackable, first try stacking it with an already existing stack.
 	elif item.stackable == true:
+		print("Inputting stackable item to invenotyr.")
 		var amount_to_stack = item.amount
 		#first stack
 		for slot in inventory:
 			if slot.item_name == item.item_name:
+				print("Found slot to stack item to.")
 				if slot.amount < max_stack_amount:
 					#Stack item to slot
-					var stackable_amount = clamp(max_stack_amount - slot.amount, 0, amount_to_stack)
-					amount_to_stack -= stackable_amount
-					slot.amount += stackable_amount
+					var stack_amount = clamp(max_stack_amount - slot.amount, 0, amount_to_stack)
+					print("Stacking "+str(stack_amount)+ " of "+str(item.item_name)+ " to slot.")
+					amount_to_stack -= stack_amount
+					slot.amount += stack_amount
 					if amount_to_stack <= 0:
 						break
 		#then if still items, put to empty
 		if amount_to_stack > 0:
-			for slot in inventory:
-				if slot.item_name == "null":
-					slot.item_name = item.item_name
-					slot.stackable = item.stackable
-					slot.amount = amount_to_stack
+			var i = 0 
+			while i < inventory.size():
+				if inventory[i].item_name == "null":
+					print("Putting item to empty slot.")
+					var new_item = item.duplicate()
+					new_item.amount = amount_to_stack
+					
+					inventory[i] = new_item
+					break
+				i += 1
 
 
 
