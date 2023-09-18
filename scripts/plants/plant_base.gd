@@ -2,6 +2,7 @@ extends Node3D
 
 #variable growth_chance to change growth behaviour
 @export var growth_chance: float = 0.1
+@export var water_suck_chance: float = 0.2
 #Item gotten when plant is harvested.
 @export var item_to_give = {"item_name":"item_name", "stackable": true, "amount": 3}
 
@@ -62,4 +63,7 @@ func on_tick():
 	#Attempt growing if not already fully grown.
 	if !harvestable:
 		if randf_range(0.0, 1.0) < growth_chance:
-			grow_plant()
+			if $"..".water_level >= 3:
+				grow_plant()
+		if randf_range(0.0, 1.0) < water_suck_chance:
+			$"..".water_level -= 1

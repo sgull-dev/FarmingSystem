@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxtlysde7enn2"]
+[gd_scene load_steps=24 format=3 uid="uid://cxtlysde7enn2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
 [ext_resource type="Script" path="res://scripts/player/player_hoe.gd" id="3_68jst"]
 [ext_resource type="Script" path="res://scripts/player/player_seedplanter.gd" id="4_cxai7"]
 [ext_resource type="Script" path="res://scripts/player/player_sickle.gd" id="4_ui6h2"]
+[ext_resource type="Script" path="res://scripts/player/player_watering.gd" id="6_78kkc"]
+[ext_resource type="PackedScene" uid="uid://bah2hre2w2krb" path="res://assets/item/watering_can.glb" id="7_d2cpo"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
 height = 1.8
@@ -113,6 +115,71 @@ _data = {
 "SwingSickle": SubResource("Animation_303xq")
 }
 
+[sub_resource type="Animation" id="Animation_ay067"]
+resource_name = "Watering"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/WateringCan/watering_can:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0), Vector3(0.857428, -3.14159, 0), Vector3(0.857428, -3.14159, 0), Vector3(0, -3.14159, 0)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Model/WateringCan/GPUParticles3D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_3tqym"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Model/WateringCan/watering_can:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, -3.14159, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kgl7x"]
+_data = {
+"RESET": SubResource("Animation_3tqym"),
+"Watering": SubResource("Animation_ay067")
+}
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_2irom"]
+particle_flag_align_y = true
+direction = Vector3(0, -0.43, -1)
+initial_velocity_min = 2.0
+initial_velocity_max = 2.0
+scale_min = 0.2
+scale_max = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_4ujdm"]
+albedo_color = Color(0.392157, 0.67451, 0.878431, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_yhlki"]
+material = SubResource("StandardMaterial3D_4ujdm")
+radius = 0.2
+
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_dyagr"]
 
 [node name="Player" type="CharacterBody3D"]
@@ -138,6 +205,7 @@ size = Vector3(0.546323, 1, 0.4825)
 
 [node name="Hoe" type="Node3D" parent="Model"]
 transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
+visible = false
 script = ExtResource("3_68jst")
 
 [node name="Holder" type="Node3D" parent="Model/Hoe"]
@@ -208,6 +276,31 @@ script = ExtResource("4_cxai7")
 [node name="RayCast3D" type="RayCast3D" parent="Model/SeedPlanter"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059397, -0.115623, -0.627779)
 target_position = Vector3(0, -1.5, 0)
+
+[node name="WateringCan" type="Node3D" parent="Model"]
+script = ExtResource("6_78kkc")
+
+[node name="RayCast3D" type="RayCast3D" parent="Model/WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0059397, -0.115623, -0.627779)
+target_position = Vector3(0, -1.5, 0)
+
+[node name="watering_can" parent="Model/WateringCan" instance=ExtResource("7_d2cpo")]
+transform = Transform3D(-0.246546, 0, -3.72274e-08, 0, 0.246546, 0, 3.72274e-08, 0, -0.246546, 0.49209, -0.729826, -0.123075)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Model/WateringCan"]
+root_node = NodePath("../../..")
+libraries = {
+"": SubResource("AnimationLibrary_kgl7x")
+}
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="Model/WateringCan"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.515092, -0.62502, -0.800232)
+emitting = false
+amount = 32
+one_shot = true
+explosiveness = 0.47
+process_material = SubResource("ParticleProcessMaterial_2irom")
+draw_pass_1 = SubResource("SphereMesh_yhlki")
 
 [node name="GroundCast" type="ShapeCast3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

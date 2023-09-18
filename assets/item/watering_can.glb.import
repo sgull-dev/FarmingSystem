@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://bh4x6k4hy45fs"
-path="res://.godot/imported/hammer.glb-6e79527208a827d0e79ea1b13ee62b87.scn"
+uid="uid://bah2hre2w2krb"
+path="res://.godot/imported/watering_can.glb-3c2549b8d2de32f5f2e7d2bd0f2895b8.scn"
 
 [deps]
 
-source_file="res://assets/buildings/hammer.glb"
-dest_files=["res://.godot/imported/hammer.glb-6e79527208a827d0e79ea1b13ee62b87.scn"]
+source_file="res://assets/item/watering_can.glb"
+dest_files=["res://.godot/imported/watering_can.glb-3c2549b8d2de32f5f2e7d2bd0f2895b8.scn"]
 
 [params]
 

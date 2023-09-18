@@ -4,6 +4,14 @@ enum GROUND_MODE {DIRT, TILLED, GRASS}
 
 var ground_mode = GROUND_MODE.DIRT
 var plant_type = PlantDatabase.PLANT_TYPE.NONE
+var water_level :int:
+	get:
+		return water_level
+	set(value):
+		water_level = clamp(value, 0, 10)
+		var clr = Color(1.0-(float(water_level)/50.0), 1.0-(float(water_level)/50.0), 1.0-(float(water_level)/50.0))
+		if graphic.material_override != null:
+			graphic.material_override.albedo_color = clr
 
 var is_block = true
 
@@ -19,9 +27,29 @@ func make_grass():
 
 
 func till_block():
-	print("Tilling block.")
 	ground_mode = GROUND_MODE.TILLED
-	graphic.material_override = load("res://materials/block_tilled.tres")
+	graphic.material_override = load("res://materials/block_tilled.tres").duplicate()
+	graphic.material_override.albedo_color = Color(0.8, 0.8, 0.8)
+	graphic.material_overlay = null
+	update_neighboring_blocks_overlay()
+	update_overlay_graphic()
+	water_level = 0
+
+
+func add_plant(type):
+	#change plant type to PlantDatabase enum
+	plant_type = type
+	#instantiate plant as child
+	var plant = PlantDatabase.get_plant_node(type)
+	add_child(plant)
+	plant.position = Vector3.ZERO
+
+
+func reset_block():
+	#reset block back to original
+	ground_mode = GROUND_MODE.DIRT
+	plant_type = PlantDatabase.PLANT_TYPE.NONE
+	graphic.material_override = load("res://materials/block_ground.tres")
 	graphic.material_overlay = null
 	update_neighboring_blocks_overlay()
 	update_overlay_graphic()
@@ -56,25 +84,6 @@ func update_neighboring_blocks_overlay():
 		var b_block = GameData.get_current_stage().get_node("GroundGenerator/" + b_name)
 		if b_block != null:
 			b_block.update_overlay_graphic()
-
-
-func add_plant(type):
-	#change plant type to PlantDatabase enum
-	plant_type = type
-	#instantiate plant as child
-	var plant = PlantDatabase.get_plant_node(type)
-	add_child(plant)
-	plant.position = Vector3.ZERO
-
-
-func reset_block():
-	#reset block back to original
-	ground_mode = GROUND_MODE.DIRT
-	plant_type = PlantDatabase.PLANT_TYPE.NONE
-	graphic.material_override = load("res://materials/block_ground.tres")
-	graphic.material_overlay = null
-	update_neighboring_blocks_overlay()
-	update_overlay_graphic()
 
 
 func update_overlay_graphic():
@@ -137,16 +146,3 @@ func update_overlay_graphic():
 			graphic.material_overlay.next_pass.next_pass.next_pass = load("res://materials/block_overlay_none.tres").duplicate()
 
 
-#func set_overlay(mat):
-#	if graphic.material_overlay == null:
-#		graphic.material_overlay = mat
-#	else:
-#		if graphic.material_overlay.get_next_pass() == null:
-#			graphic.material_overlay.set_next_pass(mat)
-#		else:
-#			if graphic.material_overlay.next_pass.get_next_pass() == null:
-#				graphic.material_overlay.next_pass.set_next_pass(mat)
-#			else:
-#				if graphic.material_overlay.next_pass.next_pass.get_next_pass() == null:
-#					graphic.material_overlay.next_pass.next_pass.set_next_pass(mat)
-		
