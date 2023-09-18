@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://41c846v3svp7" path="res://scenes/ui/hud.tscn" id="5_xbas0"]
 [ext_resource type="PackedScene" uid="uid://dexbqrqc57pf6" path="res://scenes/interactables/seed_box.tscn" id="6_ki5hg"]
 [ext_resource type="Script" path="res://scripts/game/time_manager.gd" id="8_07ya2"]
-[ext_resource type="PackedScene" uid="uid://dfekrukrjfup1" path="res://scenes/buildings/crafter.tscn" id="9_116te"]
+[ext_resource type="PackedScene" uid="uid://dfekrukrjfup1" path="res://scenes/interactables/crafter.tscn" id="9_116te"]
 
 [sub_resource type="Environment" id="Environment_jq37o"]
 
@@ -120,6 +120,7 @@ tree_chance = 0.24
 grass_chance = 0.6
 
 [node name="PlayerInventory" type="Node" parent="."]
+process_mode = 3
 script = ExtResource("4_u1wny")
 
 [node name="HUD" parent="." instance=ExtResource("5_xbas0")]

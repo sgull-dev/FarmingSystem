@@ -3,6 +3,7 @@ extends Node
 signal game_state_changed(state)
 
 #vars for player
+var player
 var player_position : Vector3
 var player_move_direction : Vector3
 var cam_rotation : float
@@ -12,12 +13,17 @@ enum GAME_STATE {PLAY, DIALOGUE, CUTSCENE, MENU}
 var game_state = GAME_STATE.PLAY
 
 
+func _ready():
+	player = get_current_stage().get_node("Player")
+
+
 func change_game_state(state):
 	if state == GAME_STATE.PLAY:
-		get_tree().paused = false
+		player.process_mode = PROCESS_MODE_ALWAYS
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
-		get_tree().paused = true
+		player.process_mode = PROCESS_MODE_DISABLED
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	game_state = state
 	
 	game_state_changed.emit(state)

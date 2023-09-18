@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://db7l4sqsmxf1n"]
+
+[ext_resource type="Script" path="res://scripts/ui/ui_dragpreview.gd" id="1_aadsn"]
+[ext_resource type="Texture2D" uid="uid://dshqew4ermhwn" path="res://assets/ui/item_icons/axe.png" id="1_bdrfe"]
+
+[node name="Sprite2D" type="Sprite2D"]
+modulate = Color(1, 1, 1, 0.639216)
+z_index = 3
+rotation = 0.153797
+texture = ExtResource("1_bdrfe")
+script = ExtResource("1_aadsn")
