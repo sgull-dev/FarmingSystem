@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dfekrukrjfup1"]
+
+[ext_resource type="PackedScene" uid="uid://2mlhmi45dikg" path="res://assets/buildings/crafting_bench.glb" id="1_iec41"]
+
+[node name="Crafter" type="Node3D"]
+
+[node name="crafting_bench" parent="." instance=ExtResource("1_iec41")]

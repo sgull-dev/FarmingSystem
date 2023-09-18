@@ -1,8 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://41c846v3svp7"]
+[gd_scene load_steps=8 format=3 uid="uid://41c846v3svp7"]
 
 [ext_resource type="Script" path="res://scripts/inventory/ui_inventory.gd" id="1_i6xwg"]
 [ext_resource type="Texture2D" uid="uid://bs6w1mpxie5hd" path="res://assets/ui/item_icons/hoe.png" id="2_j30nl"]
 [ext_resource type="Texture2D" uid="uid://cdh4yf3wcacnx" path="res://assets/ui/icon_item_select.png" id="3_a1fli"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pwgmx"]
+bg_color = Color(0.317647, 0.317647, 0.317647, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_06kly"]
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_8imey"]
 frequency = 0.0265
@@ -22,7 +27,7 @@ grow_vertical = 2
 script = ExtResource("1_i6xwg")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="InventoryHUD"]
-custom_minimum_size = Vector2(933.505, 100)
+custom_minimum_size = Vector2(940, 100)
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -335,7 +340,1350 @@ theme_override_font_sizes/normal_font_size = 21
 text = "x99"
 fit_content = true
 
+[node name="CraftingMenu" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="Panel" parent="CraftingMenu"]
+custom_minimum_size = Vector2(1000, 0)
+layout_mode = 1
+anchors_preset = 13
+anchor_left = 0.5
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pwgmx")
+
+[node name="BackpackHUD" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="Panel" type="Panel" parent="BackpackHUD"]
+custom_minimum_size = Vector2(960, 481.415)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -480.0
+offset_top = 44.0
+offset_right = 480.0
+offset_bottom = 525.415
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_06kly")
+
+[node name="GridContainer" type="GridContainer" parent="BackpackHUD"]
+custom_minimum_size = Vector2(940, 464.87)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -470.0
+offset_top = 52.2727
+offset_right = 470.0
+offset_bottom = 517.143
+grow_horizontal = 2
+grow_vertical = 2
+columns = 8
+
+[node name="ItemPanel1" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel1"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel2" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel2"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel3" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel3"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel4" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel4"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel4"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel5" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel5"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel5"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel6" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel6"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel6"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel7" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel7"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel7"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel8" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel8"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel8"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel9" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel9"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel9"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel10" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel10"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel10"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel11" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel11"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel11"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel12" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel12"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel12"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel13" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel13"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel13"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel14" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel14"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel14"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel15" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel15"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel15"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel16" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel16"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel16"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel16"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel17" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel17"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel17"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel17"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel18" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel18"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel18"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel18"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel19" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel19"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel19"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel19"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel20" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel20"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel20"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel20"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel21" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel21"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel21"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel21"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel22" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel22"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel22"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel22"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel23" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel23"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel23"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel23"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel24" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel24"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel24"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel24"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel25" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel25"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel25"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel25"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel26" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel26"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel26"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel26"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel27" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel27"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel27"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel27"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel28" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel28"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel28"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel28"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel29" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel29"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel29"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel29"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel30" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel30"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel30"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel30"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel31" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel31"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel31"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel31"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
+[node name="ItemPanel32" type="Panel" parent="BackpackHUD/GridContainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+
+[node name="TextureRect" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel32"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_j30nl")
+expand_mode = 1
+
+[node name="Selected" type="TextureRect" parent="BackpackHUD/GridContainer/ItemPanel32"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1fli")
+expand_mode = 1
+
+[node name="AmountText" type="RichTextLabel" parent="BackpackHUD/GridContainer/ItemPanel32"]
+layout_mode = 0
+offset_left = 49.7531
+offset_top = 53.0
+offset_right = 96.7531
+offset_bottom = 83.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_font_sizes/normal_font_size = 21
+text = "x99"
+fit_content = true
+scroll_active = false
+autowrap_mode = 0
+
 [node name="NoiseTexture" type="TextureRect" parent="."]
+visible = false
 offset_right = 40.0
 offset_bottom = 40.0
 texture = SubResource("NoiseTexture2D_osc4c")

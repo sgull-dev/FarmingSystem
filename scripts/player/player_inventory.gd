@@ -1,19 +1,21 @@
 extends Node
 
 const null_item = {"item_name": "null", "stackable": false, "amount": 0}
+const max_stack_amount = 99
 
-var inventory = [
-	{"item_name": "hoe", "stackable": false, "amount": 1},
-	{"item_name": "sickle", "stackable": false, "amount": 1},
-	{"item_name": "null", "stackable": false, "amount": 0},
-	{"item_name": "null", "stackable": false, "amount": 0},
-	{"item_name": "null", "stackable": false, "amount": 0},
-	{"item_name": "null", "stackable": false, "amount": 0},
-	{"item_name": "null", "stackable": false, "amount": 0},
-	{"item_name": "null", "stackable": false, "amount": 0},
-]
+var inventory
 
 var active_item_slot :int = 0
+
+
+func _ready():
+	#setup inventory
+	inventory = []
+	inventory.resize(8+3*8)
+	inventory.fill(null_item)
+	inventory[0] = {"item_name": "hoe", "stackable": false, "amount": 1}
+	inventory[1] = {"item_name": "sickle", "stackable": false, "amount": 1}
+
 
 func _input(event):
 	#handle changing active slot
@@ -61,12 +63,33 @@ func get_item(item:Dictionary):
 		var i = 0
 		while i < inventory.size():
 			if inventory[i].item_name == item.item_name:
-				slot = i
-				i += 1000
+				if inventory[i].amount < max_stack_amount:
+					slot = i
+					i += 1000
 			i += 1
 		#input item into the stack
 		if slot != null:
 			print("Found slot to stack item to. Stacking.")
+			var amount_check = inventory[slot].amount + item.amount
+			#if stack has more than max, split into two
+			if amount_check > max_stack_amount:
+				#change old stack value
+				inventory[slot].amount = max_stack_amount
+				item.amount = amount_check - max_stack_amount
+				#insert new stack
+				var _i = 0
+				var inserted = false
+				while _i < inventory.size():
+					if inventory[_i].item_name == "null":
+						inventory[_i] = item
+						inserted = true
+						_i += 1000
+					_i += 1
+				if !inserted:
+					#TO-DO: Dropping items
+					print("No space in inventory, Dropping item to ground.")
+					pass
+				
 			item.amount = inventory[slot].amount + item.amount
 			inventory[slot] = item
 			return
@@ -90,3 +113,11 @@ func remove_item(slot, amount_to_remove):
 	inventory[slot].amount -= amount_to_remove
 	if inventory[slot].amount <= 0:
 		inventory[slot] = null_item
+
+
+func move_item(slot_from, slot_to):
+	var item_to_move_1 = inventory[slot_from].duplicate()
+	var item_to_move_2 = inventory[slot_to].duplicate()
+	
+	inventory[slot_from] = item_to_move_2
+	inventory[slot_to] = item_to_move_1
