@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://bapbbrtvvbjoc"]
+
+[node name="ItemOnGround" type="Node3D"]

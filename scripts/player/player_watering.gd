@@ -3,6 +3,7 @@ extends Node3D
 
 var item_active : bool = false
 var can_water : bool = true
+var is_watering : bool = false
 
 @onready var anim = $AnimationPlayer
 @onready var cast = $RayCast3D
@@ -19,6 +20,10 @@ func _process(_delta):
 		visible = false
 		anim.play("RESET")
 		can_water = true
+	if is_watering:
+		if Input.is_action_just_released("use_item"):
+			anim.play("StopWatering")
+			is_watering = false
 
 
 func _input(event):
@@ -30,14 +35,18 @@ func _input(event):
 func water():
 	#anim
 	anim.play("Watering")
+	is_watering = true
 	#cast
-	cast.force_raycast_update()
-	var collider = cast.get_collider()
-	#find collider
-	if !collider == null:
-		if "is_block" in collider:
-			#If the collider is a block and the block's plant_type is correct, attempt to harvest plant
-			if collider.ground_mode == collider.GROUND_MODE.TILLED:
-				collider.water_level += 10
-	await  anim.animation_finished
-	can_water = true
+	while is_watering:
+		cast.force_raycast_update()
+		var collider = cast.get_collider()
+		#find collider
+		if !collider == null:
+			if "is_block" in collider:
+				#If the collider is a block and the block's plant_type is correct, attempt to harvest plant
+				if collider.ground_mode == collider.GROUND_MODE.TILLED:
+					collider.water_level += 10
+		$GPUParticles3D/Timer.start(0.5)
+		await $GPUParticles3D/Timer.timeout
+		$GPUParticles3D.restart()
+	

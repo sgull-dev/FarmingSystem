@@ -32,10 +32,10 @@ func load_json_data(path):
 
 func change_game_state(state):
 	if state == GAME_STATE.PLAY:
-		player.process_mode = PROCESS_MODE_ALWAYS
+		player.set_process_mode.call_deferred(PROCESS_MODE_ALWAYS)
 		Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	else:
-		player.process_mode = PROCESS_MODE_DISABLED
+		player.set_process_mode.call_deferred(PROCESS_MODE_DISABLED)
 		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	game_state = state
 	
