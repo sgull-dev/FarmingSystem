@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://cxtlysde7enn2"]
+[gd_scene load_steps=26 format=3 uid="uid://cxtlysde7enn2"]
 
 [ext_resource type="Script" path="res://scripts/player/player_move.gd" id="1_5gh6i"]
 [ext_resource type="Script" path="res://scripts/player/player_animation.gd" id="2_ie0nu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://scripts/player/player_sickle.gd" id="4_ui6h2"]
 [ext_resource type="Script" path="res://scripts/player/player_watering.gd" id="6_78kkc"]
 [ext_resource type="PackedScene" uid="uid://bah2hre2w2krb" path="res://assets/item/watering_can.glb" id="7_d2cpo"]
+[ext_resource type="PackedScene" uid="uid://8km0pvh5lfia" path="res://assets/item/hat.glb" id="8_a5het"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_v3lxi"]
 height = 1.8
@@ -257,6 +258,9 @@ size = Vector3(0.2, 0.25, 0.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.495171, 0)
 size = Vector3(0.546323, 1, 0.4825)
 
+[node name="hat" parent="Model" instance=ExtResource("8_a5het")]
+transform = Transform3D(-2.42375e-08, 0, 0.554489, 0, 0.554489, 0, -0.554489, 0, -2.42375e-08, 1.6382e-09, 0.0938778, 0.0374776)
+
 [node name="Hoe" type="Node3D" parent="Model"]
 transform = Transform3D(0.718453, 0, 0, 0, 0.718453, 0, 0, 0, 0.718453, 0, -1.00227, 0)
 visible = false
@@ -353,7 +357,6 @@ visible = false
 emitting = false
 amount = 32
 one_shot = true
-explosiveness = 0.47
 process_material = SubResource("ParticleProcessMaterial_2irom")
 draw_pass_1 = SubResource("SphereMesh_yhlki")
 

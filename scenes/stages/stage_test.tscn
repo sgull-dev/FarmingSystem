@@ -1,14 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://3141g61gq58u"]
+[gd_scene load_steps=16 format=3 uid="uid://3141g61gq58u"]
 
 [ext_resource type="Script" path="res://scripts/game/stage.gd" id="1_afj37"]
 [ext_resource type="PackedScene" uid="uid://cxtlysde7enn2" path="res://scenes/player/player.tscn" id="1_ky3jh"]
 [ext_resource type="PackedScene" uid="uid://cvsgmuvvay1lq" path="res://scenes/camera/topdown_camera.tscn" id="2_d0u2n"]
 [ext_resource type="Script" path="res://scripts/terrain/ground_generator.gd" id="3_nj6a1"]
 [ext_resource type="Script" path="res://scripts/player/player_inventory.gd" id="4_u1wny"]
+[ext_resource type="Script" path="res://scripts/terrain/resource_spawner.gd" id="5_a4rci"]
 [ext_resource type="PackedScene" uid="uid://41c846v3svp7" path="res://scenes/ui/hud.tscn" id="5_xbas0"]
 [ext_resource type="PackedScene" uid="uid://dexbqrqc57pf6" path="res://scenes/interactables/seed_box.tscn" id="6_ki5hg"]
 [ext_resource type="Script" path="res://scripts/game/time_manager.gd" id="8_07ya2"]
 [ext_resource type="PackedScene" uid="uid://dfekrukrjfup1" path="res://scenes/interactables/crafter.tscn" id="9_116te"]
+[ext_resource type="PackedScene" uid="uid://rbdtx53qj7oe" path="res://scenes/interactables/twig.tscn" id="10_e21dv"]
+[ext_resource type="PackedScene" uid="uid://cyxn50pmnb0nb" path="res://scenes/interactables/stone.tscn" id="11_f83nd"]
 
 [sub_resource type="Environment" id="Environment_jq37o"]
 
@@ -119,6 +122,9 @@ ground_extents = Vector2i(100, 100)
 tree_chance = 0.24
 grass_chance = 0.6
 
+[node name="ResourceSpawner" type="Node3D" parent="."]
+script = ExtResource("5_a4rci")
+
 [node name="PlayerInventory" type="Node" parent="."]
 process_mode = 3
 script = ExtResource("4_u1wny")
@@ -151,3 +157,12 @@ tick_time = 0.2
 
 [node name="Crafter" parent="." instance=ExtResource("9_116te")]
 transform = Transform3D(2.98023e-08, 0, -1, 0, 1, 0, 1, 0, 2.98023e-08, 3.05073, 0, -7.87609)
+
+[node name="ItemOnGround" parent="." instance=ExtResource("10_e21dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.8704, 9.53674e-07, 11.5538)
+
+[node name="ItemOnGround2" parent="." instance=ExtResource("11_f83nd")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -15.8805, 0, 9.27078)
+
+[node name="ItemOnGround3" parent="." instance=ExtResource("10_e21dv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.2684, 0, 16.274)

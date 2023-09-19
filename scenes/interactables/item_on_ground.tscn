@@ -1,3 +1,20 @@
-[gd_scene format=3 uid="uid://bapbbrtvvbjoc"]
+[gd_scene load_steps=3 format=3 uid="uid://bapbbrtvvbjoc"]
+
+[ext_resource type="Script" path="res://scripts/interactables/item_on_ground.gd" id="1_2p3iw"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_daaqb"]
+radius = 2.76536
 
 [node name="ItemOnGround" type="Node3D"]
+script = ExtResource("1_2p3iw")
+
+[node name="InteractArea" type="Area3D" parent="."]
+collision_layer = 0
+collision_mask = 8
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="InteractArea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.868563, 0)
+shape = SubResource("SphereShape3D_daaqb")
+
+[connection signal="body_entered" from="InteractArea" to="." method="_on_interact_area_body_entered"]
+[connection signal="body_exited" from="InteractArea" to="." method="_on_interact_area_body_exited"]

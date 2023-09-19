@@ -11,12 +11,14 @@ func setup(b):
 	#set icon
 	var icon_p = "res://assets/ui/item_icons/" + b + ".png"
 	$ItemIcon.texture = load(icon_p)
+	#Set material requirement info
 	for mat in GameData.blueprints[b].keys():
 		var mat_info = _mat_info.instantiate()
 		$ItemNameLabel2.add_sibling(mat_info)
 		icon_p = "res://assets/ui/item_icons/" + mat + ".png"
 		mat_info.get_node("MatIcon").texture = load(icon_p)
 		mat_info.get_node("MatAmountLabel").text = str(GameData.blueprints[b][mat])
+	#store blueprint index 
 	blueprint = b
 
 
@@ -29,7 +31,7 @@ func craft_item():
 			can_craft = false
 	if can_craft:
 		#Give item
-		var item_to_add = GameData.item_info[blueprint]
+		var item_to_add = GameData.item_info[blueprint].duplicate()
 		player_inventory.get_item(item_to_add)
 		#Remove materials.
 		for mat in GameData.blueprints[blueprint].keys():

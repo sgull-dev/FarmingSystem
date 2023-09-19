@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyxn50pmnb0nb"]
+
+[ext_resource type="PackedScene" uid="uid://bapbbrtvvbjoc" path="res://scenes/interactables/item_on_ground.tscn" id="1_s114h"]
+[ext_resource type="PackedScene" uid="uid://cshot2vxwksp3" path="res://assets/item/stone.glb" id="2_i31rw"]
+
+[node name="ItemOnGround" instance=ExtResource("1_s114h")]
+item_name = "stone"
+
+[node name="stone" parent="." index="1" instance=ExtResource("2_i31rw")]
+transform = Transform3D(0.335159, 0, 0, 0, 0.335159, 0, 0, 0, 0.335159, 0, 0, 0)

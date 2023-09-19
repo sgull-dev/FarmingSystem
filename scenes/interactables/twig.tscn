@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://rbdtx53qj7oe"]
+
+[ext_resource type="PackedScene" uid="uid://bapbbrtvvbjoc" path="res://scenes/interactables/item_on_ground.tscn" id="1_aa1jm"]
+[ext_resource type="PackedScene" uid="uid://clntco0xdispg" path="res://assets/item/twig.glb" id="2_vx5m0"]
+
+[node name="ItemOnGround" instance=ExtResource("1_aa1jm")]
+item_name = "twig"
+
+[node name="twig" parent="." index="1" instance=ExtResource("2_vx5m0")]
+transform = Transform3D(0.365811, 0, 0, 0, 0.365811, 0, 0, 0, 0.365811, 0, 0, 0)

@@ -46,7 +46,8 @@ func water():
 				#If the collider is a block and the block's plant_type is correct, attempt to harvest plant
 				if collider.ground_mode == collider.GROUND_MODE.TILLED:
 					collider.water_level += 10
-		$GPUParticles3D/Timer.start(0.5)
+		$GPUParticles3D/Timer.start(0.25)
 		await $GPUParticles3D/Timer.timeout
-		$GPUParticles3D.restart()
+		if !$GPUParticles3D.emitting:
+			$GPUParticles3D.restart()
 	

@@ -16,8 +16,8 @@ func _input(event):
 	if event.is_action_pressed("inventory_menu"):
 		if is_menu_open:
 			close_menu()
-		elif !is_menu_open:
-			open_menu()
+#		elif !is_menu_open:
+#			open_menu()
 
 
 func setup_menu():

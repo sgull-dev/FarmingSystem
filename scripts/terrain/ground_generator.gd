@@ -13,14 +13,17 @@ var noise = FastNoiseLite.new()
 var tree_noise_image
 var grass_noise_image
 
+@onready var resource_spawner = $"../ResourceSpawner"
+
 
 func _ready():
 	tree_noise_image = gen_noise_image(0.16)
 	grass_noise_image = gen_noise_image(0.05)
 	gen_ground(ground_extents)
+	resource_spawner.scatter_resources(Vector2(ground_extents * 2), 50)
 	#debug show noise texture
-	var texture = ImageTexture.create_from_image(grass_noise_image)
-	$"../HUD/NoiseTexture".texture = texture
+#	var texture = ImageTexture.create_from_image(grass_noise_image)
+#	$"../HUD/NoiseTexture".texture = texture
 
 
 func gen_ground(extents:Vector2i):
