@@ -62,8 +62,10 @@ func update_plant_graphic():
 func on_tick():
 	#Attempt growing if not already fully grown.
 	if !harvestable:
+		#grow
 		if randf_range(0.0, 1.0) < growth_chance:
 			if $"..".water_level >= 3:
 				grow_plant()
+		#water drain from block
 		if randf_range(0.0, 1.0) < water_suck_chance:
 			$"..".water_level -= 1
